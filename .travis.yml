@@ -5,3 +5,9 @@ before_install:
   - docker build -t lucalmeida/docker-react -f Dockerfile.dev .
 script:
   - docker run -e CI=true lucalmeida/docker-react npm run test
+deploy:
+  provider: heroku
+  api_key: $HEROKU_API_KEY
+  app: docker-react-1271
+  on:
+    branch: master
