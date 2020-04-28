@@ -7,9 +7,9 @@ script:
   - docker run -e CI=true lucalmeida/docker-react npm run test
 deploy:
   provider: script    
-    script:
-      docker login --username=_ --password=${HEROKU_API_KEY}
-      docker tag lucalmeida/docker-react registry.heroku.com/$HEROKU_APP_NAME/web;
-      docker push registry.heroku.com/$HEROKU_APP_NAME/web;
+  script:
+    docker login --username=_ --password=${HEROKU_API_KEY}
+    docker tag lucalmeida/docker-react registry.heroku.com/$HEROKU_APP_NAME/web;
+    docker push registry.heroku.com/$HEROKU_APP_NAME/web;
   on:
     branch: master
